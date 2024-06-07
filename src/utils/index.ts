@@ -1,7 +1,4 @@
-// 开发时要用到的脚本
-
-type Recordable<T = any> = Record<string, T>
-
+// import type Recordable from '@/types/golbal'
 /**
  * @description 将 vite 的原始环境变量转成正确的类型
  * @param env 原始的 vite 环境变量

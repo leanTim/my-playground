@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      vue(),
+      vue({ include: [/\.vue$/, /\.md$/, /\.db$/] }),
       VueDevTools(),
       /**
        * 按需自动导入api 不需要每次都import

@@ -1,20 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import { ref } from 'vue';
+let a = ref(100)
 
-let res = ref(import.meta.env)
 </script>
 
 <template>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+    <el-button type="primary">Primary</el-button>
+    <h1>{{ a }}</h1>
+    <!-- <el-button></el-button> -->
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
-      <h1>saaaaaa</h1>
-      {{ res }}
-      <h1>bbbbbbbbb</h1>
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>

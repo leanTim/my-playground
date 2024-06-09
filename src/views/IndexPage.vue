@@ -34,9 +34,4 @@ const collapseData = [
 
 </script>
 
-<style>
-.right-panel .el-space {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-</style>
+<style></style>

@@ -1,4 +1,6 @@
+// import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
 import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
+
 
 let SQL: SqlJsStatic
 
@@ -10,11 +12,13 @@ let SQL: SqlJsStatic
  * const buf = await fetch("/sql1.db").then((res) => res.arrayBuffer());
  * const db = new SQL.Database(new Uint8Array(buf));
  */
-export const initDB = async (initSql: string) => {
+export const initDB = async (initSql?: string) => {
     if (!SQL) {
+        console.log('before init db')
         SQL = await initSqlJs({
-            locateFile: () => './sql-swam.wasm'
+            locateFile: () => '/node_modules/sql.js/dist/sql-wasm.wasm'
         })
+        console.log(SQL, 'sql')
     }
 
     const db = new SQL.Database()

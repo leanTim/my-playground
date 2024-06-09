@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [
-      vue({ include: [/\.vue$/, /\.md$/, /\.db$/] }),
+      vue({ include: [/\.vue$/, /\.md$/, /\.db$/, /\.wasm$/] }),
       VueDevTools(),
       /**
        * 按需自动导入api 不需要每次都import
@@ -68,7 +68,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~': fileURLToPath(new URL('./', import.meta.url))
+        // '~': fileURLToPath(new URL('./', import.meta.url))
       }
     }
   }

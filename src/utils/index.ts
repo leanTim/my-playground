@@ -1,7 +1,7 @@
 /**
  * @description 将 vite 的原始环境变量转成正确的类型
- * @param env 原始的 vite 环境变量
- * @returns 转换成正确类型的 vite 环境变量
+ * @param env 原始的 vite 环境变量(string)
+ * @returns 转换成正确类型的(num boolean)
  */
 export const convertEnv = (env: Recordable): ImportMetaEnv => {
   const ret: any = {}

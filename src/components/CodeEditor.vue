@@ -56,10 +56,16 @@ watch(
     () => props.initValue,
     () => {
         if (editorRef.value && inputEditor.value) {
-            toRaw(inputEditor.value).dispose()
+            toRaw(inputEditor.value).setValue(props.initValue)
         }
     }
 )
+
+onUnmounted(() => {
+    if (inputEditor.value) {
+        toRaw(inputEditor.value).dispose()
+    }
+})
 
 </script>
 

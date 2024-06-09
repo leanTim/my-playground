@@ -1,0 +1,34 @@
+import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
+
+let SQL: SqlJsStatic
+
+/**
+ * @link https://sql.js.org/#/?id=usage
+ * @param initSql 
+ * @returns 
+ * 还可以加载远程db文件
+ * const buf = await fetch("/sql1.db").then((res) => res.arrayBuffer());
+ * const db = new SQL.Database(new Uint8Array(buf));
+ */
+export const initDB = async (initSql: string) => {
+    if (!SQL) {
+        SQL = await initSqlJs({
+            locateFile: () => './sql-swam.wasm'
+        })
+    }
+
+    const db = new SQL.Database()
+    if (initSql) {
+        db.run(initSql)
+    }
+    return db
+}
+
+/**
+ * @param db 
+ * @param sql 
+ * @returns 
+ */
+export const runSQL = (db: Database, sql: string) => {
+    return db.exec(sql)
+}

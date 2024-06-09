@@ -22,3 +22,4 @@ const props = withDefaults(defineProps<Props>(), {
     },
 });
 </script>
+<style></style>

@@ -30,6 +30,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SqlEditor: typeof import('./../../components/SqlEditor.vue')['default']
+    SqlResultBoard: typeof import('./../../components/SqlResultBoard.vue')['default']
     SqlResultTable: typeof import('./../../components/SqlResultTable.vue')['default']
   }
 }

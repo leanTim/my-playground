@@ -2,7 +2,7 @@ import { type } from '../types/declaration-files/auto-import';
 <template>
     <div id="question-board-card">
         <el-card>
-            <md-viewer :value="value"></md-viewer>
+            <md-viewer :value="level.content"></md-viewer>
             <el-divider></el-divider>
             <div class="level-control-box">
                 <el-button>上一关</el-button>
@@ -14,12 +14,10 @@ import { type } from '../types/declaration-files/auto-import';
 
 <script setup lang="ts">
 interface Props {
-    value: string
+    level: LevelType
 }
 
-const props = withDefaults(defineProps<Props>(), {
-    value: ''
-})
+const props = withDefaults(defineProps<Props>(), {})
 </script>
 
 <style scoped>

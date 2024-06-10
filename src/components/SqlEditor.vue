@@ -29,7 +29,7 @@ interface SqlEditorProps {
     level: LevelType,
     editorStyle: CSSProperties
     resultStatus?: number
-    onSubmit?: (
+    onSubmit: (
         sql: string,
         resule: QueryExecResult[],
         answerResult: QueryExecResult[],
@@ -46,7 +46,7 @@ const editorRef = ref<HTMLElement>()
 watchEffect(async () => {
     if (inputEditor.value) {
         toRaw(inputEditor.value).setValue(
-            '-- 请在此输入 SQL\n' + level.value.defaultSQL
+            '-- 请在此输入 SQL\n ' + level.value.defaultSQL
         )
     }
     // 初始化/更新数据库
@@ -54,9 +54,8 @@ watchEffect(async () => {
         db.value = await initDB(level.value.initSQL)
         doSubmit()
     } catch (error) {
-        console.log(error)
+        ElMessage.error(`初始化数据库失败${error}`)
     }
-    // console.log(db.value, '------------')
 })
 
 /**
@@ -80,15 +79,15 @@ const doReset = () => {
 
 const doSubmit = () => {
     if (!inputEditor.value) return
-
     const inputStr = toRaw(inputEditor.value).getValue()
-    // console.log(db.value)
     try {
         const res = runSQL(db.value, inputStr)
         const answer = runSQL(db.value, level.value.answer)
-        console.log(res, answer)
+        // 结果传递给父组件
+        onSubmit?.value(inputStr, res, answer)
     } catch (error: any) {
-        ElMessage.error(`语句错误${error.message}`)
+        ElMessage.error(`语句错误${error}`)
+        onSubmit?.value(inputStr, [], [], error.message)
     }
 }
 

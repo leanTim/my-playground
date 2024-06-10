@@ -21,6 +21,8 @@ declare module 'vue' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSpace: typeof import('element-plus/es')['ElSpace']
+    ElTable: typeof import('element-plus/es')['ElTable']
+    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     Layout: typeof import('./../../components/Layout.vue')['default']
     Mdviewer: typeof import('./../../components/Mdviewer.vue')['default']
     MdViewer: typeof import('./../../components/MdViewer.vue')['default']
@@ -28,5 +30,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SqlEditor: typeof import('./../../components/SqlEditor.vue')['default']
+    SqlResultTable: typeof import('./../../components/SqlResultTable.vue')['default']
   }
 }

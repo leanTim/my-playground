@@ -17,7 +17,7 @@ type IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
 }
 
 interface Props {
-    initValue?: string
+    initValue: string
     readOnly?: boolean
     editorStyle?: CSSProperties
 }
@@ -27,7 +27,6 @@ const props = withDefaults(defineProps<Props>(), {
     readOnly: false,
     editorStyle: undefined
 })
-
 
 // 编译器对象
 const inputEditor = ref<IStandaloneCodeEditor>()

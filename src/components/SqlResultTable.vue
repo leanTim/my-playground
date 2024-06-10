@@ -22,7 +22,7 @@ const { data } = toRefs(props)
 
 // 表头
 const columns = computed(() => {
-    if (data?.value?.[0].columns) {
+    if (data?.value?.[0]?.columns) {
         return data.value[0].columns.map((cloumn, index) => {
             return {
                 title: cloumn,
@@ -34,7 +34,7 @@ const columns = computed(() => {
 
 // 表的数据
 const tableData = computed(() => {
-    if (!data?.value?.[0].values) {
+    if (!data?.value?.[0]?.values) {
         return []
     }
     const columns = data.value[0].columns

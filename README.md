@@ -8,7 +8,7 @@ This template should help get you started developing with Vue 3 in Vite.
 
 `element-plus`的`el-menu`组件如果设置为`router`模式，组件默认的`background-color`,` active-text-color`会失效
 
-解决办法就是设置组件属性`:default-active="$route.path"`
+解决办法就是设置组件属性`:default-active="route.path"`
 
 参考：[issue](https://github.com/element-plus/element-plus/issues/2534)
 

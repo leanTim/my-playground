@@ -4,8 +4,8 @@ import router from '../router/index';
         <el-container class="container">
             <el-container>
                 <el-header>
-                    <el-menu :router="true" mode="horizontal" :default-active="$route.path">
-                        <el-menu-item index="/learn">学习</el-menu-item>
+                    <el-menu :router="true" mode="horizontal" :default-active="route.path">
+                        <el-menu-item :index="route.path.includes('learn') ? route.path : 'learn'">学习</el-menu-item>
                         <el-menu-item index="/levels">关卡</el-menu-item>
                         <el-menu-item index="/playground">广场</el-menu-item>
                     </el-menu>
@@ -20,7 +20,7 @@ import router from '../router/index';
 </template>
 
 <script setup lang="ts">
-
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>

@@ -1,15 +1,43 @@
 <template>
     <layout>
         <template v-slot:content>
-            <h1>this is level page</h1>
+            <el-row :gutter="20">
+                <el-col :span="12">
+                    <el-card>
+                        <template #header>
+                            <div>
+                                <h3>主线关卡</h3>
+                            </div>
+                        </template>
+                        <div v-for="(level, index) in mainLevels" class="item">
+                            <h4 v-html="`${index + 1}、 ${level.title}`"></h4>
+                            <el-button @click="doSubmit(level.key)">挑战</el-button>
+                        </div>
+                    </el-card>
+                </el-col>
+                <el-col :span="12">
+                    <el-card>
+                        bbbb
+                    </el-card>
+                </el-col>
+            </el-row>
         </template>
     </layout>
 </template>
 
 <script setup lang="ts">
-import Layout from '@/components/Layout.vue';
+import mainLevels from '@/levels/mainLevels';
+import router from '@/router';
 
-
+const doSubmit = (key: string) => {
+    router.push(`learn/${key}`)
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+</style>

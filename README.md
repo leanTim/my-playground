@@ -2,17 +2,15 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
-## Recommended IDE Setup
+## 踩的一些坑
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### el-menu组件
 
-## Type Support for `.vue` Imports in TS
+`element-plus`的`el-menu`组件如果设置为`router`模式，组件默认的`background-color`,` active-text-color`会失效
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+解决办法就是设置组件属性`:default-active="$route.path"`
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+参考：[issue](https://github.com/element-plus/element-plus/issues/2534)
 
 ## Project Setup
 

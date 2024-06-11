@@ -13,7 +13,6 @@ export const RESULT_STATUS_ENUM = ResultStatus
 export const RESULT_STATUS_INFO_MAP = ['未执行', '❌ 错误', '✅ 正确']
 
 /**
- *
  * @param result 用户执行结果
  * @param answer  正确答案
  * @returns

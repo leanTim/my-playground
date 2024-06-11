@@ -5,8 +5,9 @@ import { type } from '../types/declaration-files/auto-import';
             <md-viewer :value="level.content"></md-viewer>
             <el-divider></el-divider>
             <div class="level-control-box">
-                <el-button @click="toPrevLevel">上一关</el-button>
-                <el-button type="primary" @click="toNextLevel">下一关</el-button>
+                <el-button v-if="levelNum > 0" style="float: left" @click="toPrevLevel">上一关</el-button>
+                <el-button type="primary" :disabled="levelNum === mainLevels.length - 1" style="float: right"
+                    @click="toNextLevel">下一关</el-button>
             </div>
         </el-card>
     </div>
@@ -14,6 +15,7 @@ import { type } from '../types/declaration-files/auto-import';
 
 <script setup lang="ts">
 import { getCurrentLevelNum, getNextLevel, getPreviousLevel } from '@/levels';
+import mainLevels from '@/levels/mainLevels';
 import { useRouter } from "vue-router";
 
 interface Props {
@@ -23,20 +25,19 @@ interface Props {
 const router = useRouter()
 const props = withDefaults(defineProps<Props>(), {})
 const { level } = toRefs(props)
+// 当前关卡索引
 const levelNum = computed(() => {
     return getCurrentLevelNum(level.value)
 })
 
 // 切换关卡时滚动条回到顶部
 watch([levelNum], () => {
-    // console.log(scrollTo)
     window.scrollTo({
         top: 0,
     })
-    const card = document.getElementById("question-card")
-    if (card) {
-        console.log(card)
-        card.scrollTop = 0
+    const cardDom = document.getElementById("question-card")
+    if (cardDom) {
+        cardDom.scrollTop = 0
     }
 })
 
@@ -66,7 +67,6 @@ const toPrevLevel = () => {
 }
 
 .level-control-box {
-    display: flex;
-    justify-content: space-between;
+    overflow: hidden;
 }
 </style>

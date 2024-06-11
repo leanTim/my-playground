@@ -17,10 +17,9 @@ export const getLevelByKey = (levelKey: string) => {
 // 获取当前关卡的索引
 export const getCurrentLevelNum = (currentLevel: LevelType) => {
   return mainLevels.findIndex((level: LevelType) => {
-    level.key === currentLevel.key
+    return level.key === currentLevel.key
   })
 }
-
 // 获取上一关卡的level
 export const getPreviousLevel = (currentLevel: LevelType) => {
   const num = getCurrentLevelNum(currentLevel)

@@ -83,7 +83,6 @@ const doSubmit = () => {
     try {
         const res = runSQL(db.value, inputStr)
         const answer = runSQL(db.value, level.value.answer)
-        console.log(res, 'onsubmit')
         // 结果传递给父组件
         onSubmit?.value(inputStr, res, answer)
     } catch (error: any) {

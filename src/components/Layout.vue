@@ -5,15 +5,15 @@ import router from '../router/index';
             <el-container>
                 <el-header>
                     <el-menu :router="true" mode="horizontal" default-active="learn">
-                        <el-menu-item index="learn">学习</el-menu-item>
-                        <el-menu-item index="level">关卡</el-menu-item>
-                        <el-menu-item index="playground">广场</el-menu-item>
+                        <el-menu-item index="/learn">学习</el-menu-item>
+                        <el-menu-item index="/levels">关卡</el-menu-item>
+                        <el-menu-item index="/playground">广场</el-menu-item>
                     </el-menu>
                 </el-header>
                 <el-divider />
-                <el-main>
-                    <router-view></router-view>
-                </el-main>
+                <div>
+                    <slot name="content"></slot>
+                </div>
             </el-container>
         </el-container>
     </div>
@@ -31,6 +31,7 @@ import router from '../router/index';
 
 .el-menu {
     border-bottom: none;
+    height: auto;
 }
 
 .container {

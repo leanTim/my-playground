@@ -108,6 +108,7 @@ onMounted(async () => {
         })
     }
 })
+// 卸载编译器
 onUnmounted(() => {
     if (inputEditor.value) {
         toRaw(inputEditor.value).dispose()

@@ -32,7 +32,7 @@ const columns = computed(() => {
     return []
 })
 
-// 表的数据
+// 获取table的展示数据
 const tableData = computed(() => {
     if (!data?.value?.[0]?.values) {
         return []

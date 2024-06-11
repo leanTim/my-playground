@@ -6,7 +6,8 @@ import { type } from '../types/declaration-files/auto-import';
             <el-divider></el-divider>
             <div class="level-control-box">
                 <el-button v-if="levelNum > 0" style="float: left" @click="toPrevLevel">上一关</el-button>
-                <el-button type="primary" :disabled="levelNum === mainLevels.length - 1" style="float: right"
+                <el-button type="primary" v-if="levelNum <= mainLevels.length - 1"
+                    :disabled="resultStatus !== RESULT_STATUS_ENUM.SUCCEED" style="float: right"
                     @click="toNextLevel">下一关</el-button>
             </div>
         </el-card>
@@ -16,10 +17,12 @@ import { type } from '../types/declaration-files/auto-import';
 <script setup lang="ts">
 import { getCurrentLevelNum, getNextLevel, getPreviousLevel } from '@/levels';
 import mainLevels from '@/levels/mainLevels';
+import { RESULT_STATUS_ENUM } from '@/utils/sqlResult';
 import { useRouter } from "vue-router";
 
 interface Props {
     level: LevelType
+    resultStatus: number
 }
 
 const router = useRouter()
@@ -55,8 +58,6 @@ const toPrevLevel = () => {
         router.push(`/learn/${toLevel.key}`)
     }
 }
-
-
 </script>
 
 <style scoped>

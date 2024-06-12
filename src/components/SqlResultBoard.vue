@@ -1,7 +1,7 @@
 <template>
     <el-card>
         <template #header>
-            执行结果：<span class="result-span">{{ RESULT_STATUS_INFO_MAP[resultStatus] }}</span>
+            执行结果：<span class="result-span">{{ resultStatus ? RESULT_STATUS_INFO_MAP[resultStatus] : '' }}</span>
         </template>
         <sql-result-table v-if="!errorMsg" :data="result"></sql-result-table>
         <div v-else>❌ 语句错误：{{ errorMsg }}</div>
@@ -15,7 +15,7 @@ import type { QueryExecResult } from 'sql.js';
 interface Props {
     result: QueryExecResult[]
     errorMsg: string
-    resultStatus: number
+    resultStatus?: number
     level?: LevelType
 }
 

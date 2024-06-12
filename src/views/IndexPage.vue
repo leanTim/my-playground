@@ -4,12 +4,12 @@
             <question-board :level="level" :resultStatus="resultStatus"></question-board>
         </template>
         <template v-slot:right>
-            <sql-editor :level="level" :editor-style="{ 'min-height': '400px' }" :result-status="2"
+            <sql-editor :level="level" :editor-style="{ 'min-height': '400px' }" :result-status="resultStatus"
                 :on-submit="onSubmit"></sql-editor>
             <el-card>
                 <el-collapse v-model="collapseActiveKeys">
                     <el-collapse-item title="查看执行结果" name="result">
-                        <sql-result-board :level="level" :result="result" :error-msg="errorMsg"
+                        <sql-result-board :result="result" :error-msg="errorMsg"
                             :resultStatus="resultStatus"></sql-result-board>
                     </el-collapse-item>
                     <el-collapse-item title="查看提示" name="hint">

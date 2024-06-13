@@ -1,8 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import IndexPage from '@/views/IndexPage.vue'
-import Layout from '@/components/Layout.vue'
 import LevelPage from '@/views/LevelPage.vue'
 import PlaygroundPage from '@/views/PlaygroundPage.vue'
+import TsPlayground from '@/views/TsPlayground.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -31,6 +31,10 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       redirect: '/learn'
+    },
+    {
+      path: '/ts',
+      component: TsPlayground
     }
   ]
 })

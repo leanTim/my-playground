@@ -16,8 +16,7 @@
                         <p>{{ level.hint }}</p>
                     </el-collapse-item>
                     <el-collapse-item title="查看建表语句" name="initSQL">
-                        <code-editor :init-value="level.initSQL"
-                            :editor-style="{ 'min-height': '400px' }"></code-editor>
+                        <code-editor :readOnly="true" lang="sql" :init-value="level.initSQL"></code-editor>
                     </el-collapse-item>
                     <el-collapse-item title="查看答案" name="answer">
                         <pre v-html="highlightCode(format(level.answer))"></pre>

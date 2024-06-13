@@ -10,7 +10,21 @@ This template should help get you started developing with Vue 3 in Vite.
 
 解决办法就是设置组件属性`:default-active="route.path"`
 
-参考：[issue](https://github.com/element-plus/element-plus/issues/2534)
+### 不要把monaco的editor对象ref，否则监听Editor.onDidChangeModelContent()页面会卡死
+
+```js
+type IStandaloneCodeEditor = monaco.editor.IStandaloneCodeEditor;
+// wrong
+const editor = ref<IStandaloneCodeEditor>()
+// right
+const Editor: IStandaloneCodeEditor
+// ...then init
+```
+
+## 参考文章
+
+[在vue中使用monaco-editor](https://juejin.cn/post/7095994149753028615?searchId=20240612142854B73AF38C9DCFFE410B4F)
+[elementPlus-issue](https://github.com/element-plus/element-plus/issues/2534)
 
 ## Project Setup
 

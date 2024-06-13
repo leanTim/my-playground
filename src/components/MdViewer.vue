@@ -3,6 +3,7 @@
 </template>
 
 <script setup lang="ts">
+// @ts-ignore
 import { Viewer } from "@bytemd/vue-next";
 import gfm from "@bytemd/plugin-gfm";
 import highlight from "@bytemd/plugin-highlight";

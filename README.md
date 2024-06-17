@@ -21,8 +21,6 @@ const Editor: IStandaloneCodeEditor
 // ...then init
 ```
 
-test git commit
-
 ## 参考文章
 
 [在vue中使用monaco-editor](https://juejin.cn/post/7095994149753028615?searchId=20240612142854B73AF38C9DCFFE410B4F)

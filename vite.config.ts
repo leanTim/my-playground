@@ -64,10 +64,14 @@ export default defineConfig(({ mode }) => {
         }
       })
     ],
+    optimizeDeps: {
+      // 强制预构建插件包
+      include: ['typescript', 'monaco-editor-core/esm/vs/editor/editor.worker']
+    },
     envDir: envDir,
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@': fileURLToPath(new URL('./src', import.meta.url))
         // '~': fileURLToPath(new URL('./', import.meta.url))
       }
     }

@@ -116,6 +116,7 @@ watch(
 onUnmounted(() => {
     // 销毁编译器
     if (inputEditor) {
+        // inputEditor.dispose()
         toRaw(inputEditor).dispose()
     }
 

@@ -29,6 +29,7 @@ declare module 'vue' {
     QuestionBoard: typeof import('./../../components/QuestionBoard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SplitPane: typeof import('./../../components/SplitPane.vue')['default']
     SqlEditor: typeof import('./../../components/SqlEditor.vue')['default']
     SqlResultBoard: typeof import('./../../components/SqlResultBoard.vue')['default']
     SqlResultTable: typeof import('./../../components/SqlResultTable.vue')['default']

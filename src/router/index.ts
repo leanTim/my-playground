@@ -3,6 +3,7 @@ import IndexPage from '@/views/IndexPage.vue'
 import LevelPage from '@/views/LevelPage.vue'
 import PlaygroundPage from '@/views/PlaygroundPage.vue'
 import TsPlayground from '@/views/TsPlayground.vue'
+import VuePlayground from '@/views/VuePlayground.vue'
 
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
@@ -35,6 +36,10 @@ const router = createRouter({
     {
       path: '/ts',
       component: TsPlayground
+    },
+    {
+      path: '/vue',
+      component: VuePlayground
     }
   ]
 })
